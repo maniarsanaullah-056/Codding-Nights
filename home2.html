@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpHub AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #eeeee2;
+            background: linear-gradient(180deg, #eeeee2 0%, #e5ebdd 12%, #f0ebe3 35%, #f5f0e8 60%, #f9f6f1 100%);
+            color: #1a1a1a;
+            width: 1094px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 1600px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 48px;
+            height: 68px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            background: #0a9e8d;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .logo-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            letter-spacing: -0.2px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #5a6b62;
+            font-size: 13.5px;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .nav a:hover {
+            color: #1a1a1a;
+            background: rgba(255,255,255,0.3);
+        }
+
+        .nav a.active {
+            background: rgba(255,255,255,0.45);
+            color: #1a1a1a;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .live-signals {
+            font-size: 13px;
+            color: #5a6b62;
+            font-weight: 500;
+        }
+
+        .btn-join {
+            background: #0a9e8d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 24px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: -0.2px;
+        }
+
+        /* Hero */
+        .hero {
+            display: flex;
+            padding: 36px 48px 0;
+            gap: 48px;
+        }
+
+        .hero-main {
+            flex: 1;
+            max-width: 540px;
+        }
+
+        .hero-label {
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            color: #6a7b72;
+            margin-bottom: 14px;
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            font-weight: 800;
+            line-height: 1.08;
+            color: #1a1a1a;
+            margin-bottom: 18px;
+            letter-spacing: -2px;
+        }
+
+        .hero-desc {
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: #5a6b62;
+            margin-bottom: 26px;
+            max-width: 460px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 36px;
+        }
+
+        .btn-demo {
+            background: #5a8a87;
+            color: white;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 24px;
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: -0.2px;
+        }
+
+        .btn-post {
+            background: #fdf8f2;
+            color: #1a1a1a;
+            border: 1px solid #e0dbd3;
+            padding: 12px 22px;
+            border-radius: 24px;
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: -0.2px;
+        }
+
+        /* Stats */
+        .stats-row {
+            display: flex;
+            gap: 14px;
+        }
+
+        .stat-box {
+            background: #efebdf;
+            border-radius: 16px;
+            padding: 20px 22px;
+            flex: 1;
+            min-width: 130px;
+        }
+
+        .stat-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: #6a7b72;
+            margin-bottom: 8px;
+        }
+
+        .stat-num {
+            font-size: 30px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+
+        .stat-desc {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #5a6b62;
+        }
+
+        /* Feature Card (Dark) */
+        .dark-card {
+            width: 430px;
+            background: #16332f;
+            border-radius: 24px;
+            padding: 32px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .dark-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #7a9a92;
+            margin-bottom: 16px;
+        }
+
+        .dark-card h2 {
+            font-size: 33px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            color: #fef7ef;
+            letter-spacing: -0.5px;
+        }
+
+        .dark-card > p {
+            font-size: 13px;
+            line-height: 1.65;
+            color: #8aaa9e;
+            margin-bottom: 24px;
+        }
+
+        .yellow-dot {
+            position: absolute;
+            top: 28px;
+            right: 28px;
+            width: 44px;
+            height: 44px;
+            background: #d9bb61;
+            border-radius: 50%;
+        }
+
+        .dark-inner {
+            background: #1c2c29;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .dark-inner h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #fef7ef;
+            margin-bottom: 6px;
+            letter-spacing: -0.2px;
+        }
+
+        .dark-inner p {
+            font-size: 12px;
+            line-height: 1.55;
+            color: #7a9a92;
+        }
+
+        .dark-stat {
+            background: #1c2c29;
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .dark-stat-num {
+            font-size: 24px;
+            font-weight: 800;
+            color: #fef7ef;
+            margin-bottom: 4px;
+            letter-spacing: -0.5px;
+        }
+
+        .dark-stat-desc {
+            font-size: 12px;
+            color: #7a9a92;
+            line-height: 1.45;
+        }
+
+        /* Core Flow */
+        .core-flow {
+            padding: 56px 48px 40px;
+        }
+
+        .section-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 28px;
+        }
+
+        .sec-label {
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            color: #6a7b72;
+            margin-bottom: 10px;
+        }
+
+        .sec-title {
+            font-size: 34px;
+            font-weight: 800;
+            color: #1a1a1a;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .btn-try {
+            background: transparent;
+            color: #1a1a1a;
+            border: 1px solid #d5d0c8;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 4px;
+        }
+
+        .flow-grid {
+            display: flex;
+            gap: 14px;
+        }
+
+        .flow-item {
+            flex: 1;
+            background: #f0ece3;
+            border-radius: 16px;
+            padding: 22px;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .flow-item h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            letter-spacing: -0.3px;
+        }
+
+        .flow-item p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #5a6b62;
+        }
+
+        /* Featured */
+        .featured {
+            padding: 36px 48px 60px;
+        }
+
+        .request-grid {
+            display: flex;
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .req-card {
+            flex: 1;
+            background: #fdf8f2;
+            border-radius: 16px;
+            padding: 18px;
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            min-height: 280px;
+        }
+
+        .req-tags {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .req-tag {
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+        }
+
+        .tag-cat {
+            background: #dce5dd;
+            color: #2a5a3a;
+        }
+
+        .tag-urg {
+            background: #f5e0e0;
+            color: #8a3a3a;
+        }
+
+        .tag-stat {
+            background: #e0e8f0;
+            color: #3a5a8a;
+        }
+
+        .tag-skill {
+            background: #e8e4dc;
+            color: #5a5a5a;
+        }
+
+        .req-card h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            line-height: 1.35;
+            letter-spacing: -0.2px;
+        }
+
+        .req-desc {
+            font-size: 12px;
+            line-height: 1.55;
+            color: #5a6b62;
+            margin-bottom: 12px;
+            flex: 1;
+        }
+
+        .req-skills {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .req-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .req-user {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        .req-user-name {
+            font-size: 12px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .req-user-meta {
+            font-size: 11px;
+            color: #8a8a82;
+        }
+
+        .btn-details {
+            background: transparent;
+            color: #1a1a1a;
+            border: 1px solid #d5d0c8;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px 48px 40px;
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: #8a8a82;
+            line-height: 1.5;
+        }
+        /*  */
+        /* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+
+    body {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 30px 20px 0;
+        gap: 30px;
+    }
+
+    .dark-card {
+        width: 100%;
+    }
+
+    .flow-grid,
+    .request-grid {
+        flex-wrap: wrap;
+    }
+
+    .flow-item,
+    .req-card {
+        flex: 1 1 45%;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    body {
+        width: 100%;
+        min-height: auto;
+        padding: 0 12px;
+    }
+
+    /* HEADER */
+    .header {
+        flex-direction: column;
+        height: auto;
+        gap: 10px;
+        padding: 14px 16px;
+        align-items: flex-start;
+    }
+
+    .header-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    /* HERO */
+    .hero {
+        flex-direction: column;
+        padding: 20px 16px 0;
+        gap: 20px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero-desc {
+        font-size: 13px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn-demo,
+    .btn-post {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* STATS */
+    .stats-row {
+        flex-direction: column;
+    }
+
+    .stat-box {
+        width: 100%;
+    }
+
+    /* DARK CARD */
+    .dark-card {
+        width: 100%;
+        padding: 22px;
+    }
+
+    .dark-card h2 {
+        font-size: 24px;
+    }
+
+    /* CORE FLOW */
+    .core-flow {
+        padding: 30px 16px;
+    }
+
+    .section-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .sec-title {
+        font-size: 24px;
+    }
+
+    .flow-grid {
+        flex-direction: column;
+    }
+
+    /* FEATURED */
+    .featured {
+        padding: 20px 16px;
+    }
+
+    .request-grid {
+        flex-direction: column;
+    }
+
+    .req-card {
+        width: 100%;
+        min-height: auto;
+    }
+
+    /* FOOTER */
+    .footer {
+        padding: 20px 16px;
+    }
+}
+    </style>
+    <base target="_blank">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">
+                <div class="logo-icon">H</div>
+                <span class="logo-text">HelpHub AI</span>
+            </div>
+            <nav class="nav">
+                <a href="#" class="active" style="color: green;">Home</a>
+                <a href="./Dashbord.html">Dashbord </a>
+                <a href="/index2.html/Explore.html">Explore</a>
+                <a href="./Leaderboard.html">Leaderboard</a>
+                <a href="./index2.html/AI Center.html">AI Center</a>
+                <a href="/index2.html/Request Detail.html">Request Detail </a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <span class="live-signals" >Live community signals</span>
+            <button class="btn-join" style="background-color: darkgreen; color: white;"> <a style="color: white; text-decoration: none;" href="./login.html">Join the platform</a></button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-main">
+            <div class="hero-label">SMIT GRAND CODING NIGHT 2026</div>
+            <h1>Find help faster.<br>Become help that<br>matters.</h1>
+            <p class="hero-desc">HelpHub AI is a community-powered support network for students, mentors, creators, and
+                builders. Ask for help, offer help, track impact, and let AI surface smarter matches across the
+                platform.</p>
+            <div class="hero-buttons">
+                <button class="btn-demo" style="background-color: darkgreen; color: white;">Open product demo</button>
+                <button class="btn-post">Post a request</button>
+            </div>
+
+            <div class="stats-row" >
+                <div class="stat-box" style="background-color: white; color: black;">
+                    <div class="stat-label">Members</div>
+                    <div class="stat-num">384+</div>
+                    <div class="stat-desc">Students, mentors, and helpers in the loop.</div>
+                </div>
+                <div class="stat-box" style="background-color: white; color: black;">
+                    <div class="stat-label">Requests</div>
+                    <div class="stat-num">72+</div>
+                    <div class="stat-desc">Support posts shared across learning journeys.</div>
+                </div>
+                <div class="stat-box" style="background-color: white; color: black;">
+                    <div class="stat-label">Solved</div>
+                    <div class="stat-num">69+</div>
+                    <div class="stat-desc">Problems resolved through fast community action.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dark-card">
+            <div class="yellow-dot"></div>
+            <div class="dark-label">LIVE PRODUCT FEEL</div>
+            <h2>More than a form.<br>More like an<br>ecosystem.</h2>
+            <p>A polished multi-page experience inspired by product platforms, with AI summaries, trust scores,
+                contribution signals, notifications, and leaderboard momentum built directly in HTML, CSS, JavaScript,
+                and LocalStorage.</p>
+
+            <div class="dark-inner" style="background-color: white; color: black;">
+                <h4 style="color: black;">AI request intelligence</h4>
+                <p style="color: black;">Auto-categorization, urgency detection, tags, rewrite suggestions, and trend snapshots.</p>
+            </div>
+            <div class="dark-inner" style="background-color: white;">
+                <h4 style="color: black;">Community trust graph</h4>
+                <p style="color: black;">Badges, helper rankings, trust score boosts, and visible contribution history.</p>
+            </div>
+            <div class="dark-stat" style="background-color: white;">
+                <div  style="color: black;" class="dark-stat-num">100%</div>
+                <div style="color: black;"  class="dark-stat-desc">Top trust score currently active across the sample mentor network.</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="core-flow">
+        <div class="section-top">
+            <div>
+                <div class="sec-label" style="color: green;">CORE FLOW</div>
+                <h2 class="sec-title">From struggling alone to solving together</h2>
+            </div>
+            <button class="btn-try" style="background-color: white; color: black;">Try onboarding AI</button>
+        </div>
+
+        <div class="flow-grid">
+            <div class="flow-item" style="background-color: white;color: black;">
+                <h3>Ask for help clearly</h3>
+                <p>Create structured requests with category, urgency, AI suggestions, and tags that attract the right
+                    people.</p>
+            </div>
+            <div class="flow-item" style="background-color: white; color: black;">
+                <h3>Discover the right people</h3>
+                <p>Use the explore feed, helper lists, notifications, and messaging to move quickly once a match
+                    happens.</p>
+            </div>
+            <div class="flow-item" style="background-color: white; color: black;">
+                <h3>Track real contribution</h3>
+                <p>Trust scores, badges, solved requests, and rankings help the community recognize meaningful support.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured">
+        <div class="section-top">
+            <div>
+                <div class="sec-label" style="color: green;">FEATURED REQUESTS</div>
+                <h2 class="sec-title">Community problems currently in motion</h2>
+            </div>
+            <button class="btn-try" style="background-color: white; color: black;">View full feed</button>
+        </div>
+
+        <div class="request-grid">
+            <div class="req-card">
+                <div class="req-tags">
+                    <span class="req-tag tag-cat">Web Development</span>
+                    <span class="req-tag tag-urg">High</span>
+                    <span class="req-tag tag-cat">Solved</span>
+                </div>
+                <h4>Need help</h4>
+                <p class="req-desc">helpin needed</p>
+                <div class="req-foot">
+                    <div class="req-user">
+                        <span class="req-user-name">Ayesha Khan</span>
+                        <span class="req-user-meta">Karachi • 1 helper interested</span>
+                    </div>
+                    <button class="btn-details">Open details</button>
+                </div>
+            </div>
+
+            <div class="req-card">
+                <div class="req-tags">
+                    <span class="req-tag tag-cat" style="color: green;">Web Development</span>
+                    <span class="req-tag tag-urg" style="color: palevioletred;">High</span>
+                    <span class="req-tag tag-cat" style="color: green;">Solved</span>
+                </div>
+                <h4>Need help making my portfolio responsive before demo day</h4>
+                <p class="req-desc">My HTML/CSS portfolio breaks on tablets and I need layout guidance before tomorrow
+                    evening.</p>
+                <div class="req-skills">
+                    <span class="req-tag tag-skill" style="color: green;">HTML/CSS</span>
+                    <span class="req-tag tag-skill" style="color: green;">Responsive</span>
+                    <span class="req-tag tag-skill" style="color: green;">Portfolio</span>
+                </div>
+                <div class="req-foot">
+                    <div class="req-user">
+                        <span class="req-user-name">Sara Noor</span>
+                        <span class="req-user-meta">Karachi • 1 helper interested</span>
+                    </div>
+                    <button class="btn-details">Open details</button>
+                </div>
+            </div>
+
+            <div class="req-card">
+                <div class="req-tags">
+                    <span class="req-tag tag-stat" style="color: green;">Design</span>
+                    <span class="req-tag tag-skill" style="color: green;">Medium</span>
+                    <span class="req-tag tag-stat" style="color: green;">Open</span>
+                </div>
+                <h4>Looking for Figma feedback on a volunteer event poster</h4>
+                <p class="req-desc">I have a draft poster for a campus community event and want sharper hierarchy,
+                    spacing, and CTA copy.</p>
+                <div class="req-skills">
+                    <span class="req-tag tag-skill" style="color: green;">Figma</span>
+                    <span class="req-tag tag-skill" style="color: green;">Poster</span>
+                    <span class="req-tag tag-skill" style="color: green;">Design Review</span>
+                </div>
+                <div class="req-foot">
+                    <div class="req-user">
+                        <span class="req-user-name">Ayesha Khan</span>
+                        <span class="req-user-meta">Lahore • 1 helper interested</span>
+                    </div>
+                    <button class="btn-details">Open details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>HelpHub AI is built as a premium-feel, multi-page community support product using HTML, CSS, JavaScript, and
+            LocalStorage.</p>
+    </footer>
+</body>

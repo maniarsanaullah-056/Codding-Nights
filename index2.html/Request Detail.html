@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helphub AI - Request Detail</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+   <style>:root {
+    --primary-teal: rgba(19, 176, 159, 1);
+    --dark-slate: #1e2626;
+    --mid-teal: rgba(15, 127, 118, 1);
+    --page-bg: #f6f4f0;
+    --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background-color: var(--page-bg); padding-top: 80px; color: #1a1a1a; }
+
+/* Navbar */
+.navbar { position: fixed; top: 0; width: 100%; background: var(--white); height: 70px; display: flex; align-items: center; z-index: 1000; box-shadow: 0 1px 5px rgba(0,0,0,0.02); }
+.nav-container { width: 90%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.logo { display: flex; align-items: center; gap: 8px; font-weight: 700; }
+.logo-icon { background: var(--mid-teal); color: white; width: 32px; height: 32px; border-radius: 6px; display: flex; justify-content: center; align-items: center; }
+.nav-links a { text-decoration: none; color: #666; font-weight: 500; margin-left: 25px; font-size: 0.9rem; }
+
+/* Banner */
+.main-wrapper { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
+.banner-card { background-color: var(--dark-slate); color: white; padding: 50px 60px; border-radius: 35px; margin-bottom: 25px; }
+.status-badges { display: flex; gap: 8px; margin: 15px 0; }
+.badge-pill { background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; color: var(--primary-teal); }
+.badge-pill.solved { background: rgba(19, 176, 159, 0.2); }
+
+.banner-card h1 { font-size: 2.8rem; line-height: 1.1; margin-bottom: 15px; font-weight: 700; }
+.banner-sub { color: #9ca3af; font-size: 1.05rem; max-width: 750px; }
+
+/* Grid Layout */
+.detail-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 25px; }
+.detail-card { background: var(--white); border-radius: 30px; padding: 35px; margin-bottom: 25px; }
+
+/* AI Summary & Tags */
+.summary-text { font-size: 1.1rem; margin: 15px 0; line-height: 1.5; color: #444; }
+.tag-row { display: flex; gap: 10px; }
+.tag { background: #e8f4f3; color: var(--mid-teal); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+
+/* Helpers List */
+.card-title { font-size: 1.2rem; margin-bottom: 20px; font-weight: 700; }
+.helper-item { 
+    background: #faf9f6; 
+    padding: 15px 20px; 
+    border-radius: 20px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 12px;
+}
+.helper-main { display: flex; align-items: center; gap: 12px; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-weight: 700; font-size: 0.8rem; }
+.orange-avatar { background: #ff7e4d; }
+.dark-avatar { background: var(--dark-slate); }
+.small-avatar { background: var(--mid-teal); width: 35px; height: 35px; }
+
+.helper-info h4 { font-size: 0.95rem; }
+.helper-info p { font-size: 0.8rem; color: #777; }
+
+.trust-badge { background: #e0f2f1; color: #00796b; padding: 6px 12px; border-radius: 15px; font-size: 0.75rem; font-weight: 700; }
+.trust-badge.secondary { background: #f1f0ec; color: #888; }
+
+/* Actions */
+.action-buttons { display: flex; gap: 12px; margin-top: 15px; }
+.btn-filled { background: var(--mid-teal); color: white; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 600; cursor: pointer; }
+.btn-outline { background: white; border: 1px solid #e5e7eb; padding: 12px 24px; border-radius: 12px; font-weight: 600; cursor: pointer; }
+
+/* Utility */
+.teal-text { color: var(--mid-teal); font-size: 0.75rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 10px; display: block; }</style>
+
+  </head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">H</span>
+                <span class="logo-text">HelpHub AI</span>
+            </div>
+            <nav class="nav-links">
+                <a href="/home2.html">Home</a>
+                <a href="./Explore.html">Explore</a>
+                <a href="./Message.html">Messages</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-wrapper">
+        
+        <section class="banner-card">
+            <p class="tagline">REQUEST DETAIL</p>
+            <div class="status-badges">
+                <span class="badge-pill">Career</span>
+                <span class="badge-pill">Low</span>
+                <span class="badge-pill solved">Solved</span>
+            </div>
+            <h1>Need mock interview support for internship applications</h1>
+            <p class="banner-sub">Applying to frontend internships and need someone to practice behavioral and technical interview questions with me.</p>
+        </section>
+
+        <div class="detail-grid">
+            
+            <div class="grid-left">
+                <section class="card detail-card">
+                    <p class="tagline-small teal-text">AI SUMMARY</p>
+                    <p class="summary-text">User is looking for assistance with preparing for entry-level frontend interviews.</p>
+                    <div class="tag-row">
+                        <span class="tag">Interview Prep</span>
+                        <span class="tag">Career</span>
+                        <span class="tag">Frontend</span>
+                    </div>
+                </section>
+
+                <section class="card detail-card">
+                    <p class="tagline-small teal-text">ACTIONS</p>
+                    <div class="action-buttons">
+                        <button class="btn-filled">I can help</button>
+                        <button class="btn-outline">Mark as solved</button>
+                    </div>
+                </section>
+            </div>
+
+            <div class="grid-right">
+                <section class="card detail-card">
+                    <p class="tagline-small teal-text">REQUESTER</p>
+                    <div class="user-row">
+                        <div class="avatar small-avatar">HA</div>
+                        <div>
+                            <h4 class="user-name">Muhammad Affan</h4>
+                            <p class="user-meta">Student @ BSEK</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card detail-card">
+                    <p class="tagline-small teal-text">HELPERS</p>
+                    <h3 class="card-title">People ready to support</h3>
+                    
+                    <div class="helper-list">
+                        <div class="helper-item">
+                            <div class="helper-main">
+                                <div class="avatar orange-avatar">AK</div>
+                                <div class="helper-info">
+                                    <h4>Ayesha Khan</h4>
+                                    <p>Figma, UI/UX, HTML/CSS</p>
+                                </div>
+                            </div>
+                            <span class="trust-badge">Trust 100%</span>
+                        </div>
+
+                        <div class="helper-item">
+                            <div class="helper-main">
+                                <div class="avatar dark-avatar">HA</div>
+                                <div class="helper-info">
+                                    <h4>Hassan Ali</h4>
+                                    <p>JavaScript, React, Git/GitHub</p>
+                                </div>
+                            </div>
+                            <span class="trust-badge secondary">Trust 88%</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

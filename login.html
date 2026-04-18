@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HelpHub UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
+
+    body{
+      height:100vh;
+      background:linear-gradient(120deg,#f4efe6,#e6dccb);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    /* NAVBAR */
+    .nav{
+      width:90%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:600;
+    }
+
+    .logo-box{
+      width:40px;
+      height:40px;
+      border-radius:10px;
+      background:#1f8f7a;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:bold;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:30px;
+      color:#555;
+    }
+
+    /* MAIN */
+    .container{
+      width:90%;
+      display:flex;
+      gap:40px;
+      margin-top:20px;
+    }
+
+    .left{
+      flex:1;
+      background:linear-gradient(160deg,#0f3d34,#0a2c26);
+      color:#fff;
+      padding:40px;
+      border-radius:30px;
+    }
+
+    .left h1{
+      font-size:42px;
+      margin:20px 0;
+      line-height:1.2;
+    }
+
+    .left p{
+      color:#cbd5d1;
+      margin-bottom:20px;
+    }
+
+    .left ul{
+      margin-top:20px;
+      padding-left:20px;
+      color:#cbd5d1;
+    }
+
+    .right{
+      flex:1;
+      background:#f3eee6;
+      padding:40px;
+      border-radius:30px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .right h2{
+      font-size:32px;
+      margin:10px 0 20px;
+    }
+
+    label{
+      font-size:14px;
+      margin-top:10px;
+      display:block;
+      color:#555;
+    }
+
+    select, input{
+      width:100%;
+      padding:12px;
+      margin-top:5px;
+      border-radius:10px;
+      border:1px solid #ddd;
+      outline:none;
+      background:#fff;
+    }
+
+    .row{
+      display:flex;
+      gap:15px;
+    }
+
+    .btn{
+      width:100%;
+      padding:15px;
+      margin-top:20px;
+      border:none;
+      border-radius:30px;
+      background:linear-gradient(120deg,#1f8f7a,#1fbf9f);
+      color:#fff;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    .small{
+      font-size:12px;
+      color:#777;
+    }
+
+    @media(max-width:900px){
+      .container{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav">
+    <div class="logo">
+      <div class="logo-box">H</div>
+      HelpHub AI
+    </div>
+    <div class="nav-links">
+      <span><a style="color: black; text-decoration: none;" href="./home2.html">Home</a></span>
+      <span><a style="color: black; text-decoration: none;" href="/index2.html/Explore.html">Explore</a></span>
+      <!-- <span><a href="./index2.html/AI Center.html">AI center</a></span> -->
+      <span><a style="color: black; text-decoration: none;" href="/Leaderboard.html">Leaderbord</a></span>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- LEFT -->
+    <div class="left">
+      <div class="small">COMMUNITY ACCESS</div>
+      <h1>Enter the support network.</h1>
+      <p>Choose a demo identity, set your role, and jump into a multi-page product flow designed for asking, offering, and tracking help with a premium interface.</p>
+
+      <ul>
+        <li>Role-based entry for Need Help, Can Help, or Both</li>
+        <li>Direct path into dashboard, requests, AI Center, and community feed</li>
+        <li>Persistent demo session powered by LocalStorage</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+      <div class="small">LOGIN / SIGNUP</div>
+      <h2>Authenticate your community profile</h2>
+
+      <label>Select demo user</label>
+      <select>
+        <option>Sanaullah Maniar </option>
+        <option>Anas faisal </option>
+        <option>Abdul Basit Maniar </option>
+        <option>Ayesha Khan</option>
+      </select>
+
+      <label>Role selection</label>
+      <select>
+        <option> Both</option>
+        <option>web n application</option>
+        <option>AI</option>
+        <option>others</option>
+      </select>
+
+      <div class="row">
+        <div style="flex:1">
+          <label>Email</label>
+          <input type="email" value="">
+        </div>
+        <div style="flex:1">
+          <label>Password</label>
+          <input type="password" value="">
+        </div>
+      </div>
+
+      <button class="btn"><a style="color: white; text-decoration: none;" href="./Dashbord.html">Continue to dashboard</a></button>
+    </div>
+
+  </div>
+
+</body>
+</html>
